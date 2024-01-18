@@ -1,0 +1,9 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
+    <div class="container mt-4">
+        <p class="h2">There are not the page you're looking for. Come <a href="{% url 'index' %}">Home</a>, padawan</p>
+    </div>
+{% endblock content %}
