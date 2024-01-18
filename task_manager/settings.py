@@ -31,7 +31,8 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '0.0.0.0:$(PORT)',
+    '0.0.0.0',
+    'task-manager-hia7.onrender.com',
 ]
 
 
