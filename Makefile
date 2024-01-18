@@ -13,8 +13,9 @@ setup:
 	make install
 	make migrate
 
+PORT ?= 8000
 start:
-	poetry run python manage.py runserver 0.0.0.0:8000
+	poetry run python manage.py runserver 0.0.0.0:$(PORT)
 
 .PHONY: shell
 shell:
