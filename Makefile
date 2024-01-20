@@ -13,10 +13,6 @@ setup:
 	make install
 	make migrate
 
-PORT ?= 8000
-start:
-	poetry run python manage.py runserver 0.0.0.0:$(PORT)
-
 .PHONY: shell
 shell:
 	@$(MANAGE) shell_plus --ipython
@@ -30,3 +26,7 @@ lint:
 .PHONY: test
 test:
 	@poetry run pytest
+
+PORT ?= 8000
+start:
+	poetry run gunicorn -w 5 -b 0.0.0.0:$(PORT) task_manager.wsgi
