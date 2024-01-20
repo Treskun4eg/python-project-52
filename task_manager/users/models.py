@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # Create your models here.
 class TimestampedModel(models.Model):
     """An abstract model with a pair of timestamps."""
