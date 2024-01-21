@@ -33,6 +33,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '0.0.0.0',
     'task-manager-hia7.onrender.com',
+    'python-project-52-production-264f.up.railway.app',
 ]
 
 
