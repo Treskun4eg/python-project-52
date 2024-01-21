@@ -9,7 +9,7 @@ migrate:
 	@$(MANAGE) migrate
 
 setup:
-	cp -n .env.example .env || true
+	cp -n .env || true
 	make install
 	make migrate
 
