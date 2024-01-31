@@ -1,0 +1,34 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
+<h1 class="my-4">Пользователи</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Имя пользователя</th>
+      <th>Полное имя</th>
+      <th>Дата создания</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for user in users %}
+    <tr>
+      <td>{{ user.id }}</td>
+      <td>{{ user.first_name }}</td>
+      <td>{{ user.last_name }}</td>
+      <td>{{ user.created_at|date:"d.m.Y" }} {{ user.created_at|time:"H:i" }}</td>
+      <td>
+          <a href="/users/104/update/">Изменить</a>
+          <br>
+          <a href="/users/104/delete/">Удалить</a>
+      </td>
+    </tr>
+    {% endfor  %}
+  </tbody>
+</table>
+{% endblock content %}
