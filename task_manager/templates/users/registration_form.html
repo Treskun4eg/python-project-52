@@ -1,0 +1,64 @@
+{% extends 'layout.html' %}
+{% load bootstrap4 i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+
+{% block content %}
+<h1 class="my-4">Регистрация</h1>
+<form class="needs-validation" method="post" action="{% url 'registration_user' %}">
+    {% csrf_token %}
+    <div class="mb-3">
+        <label class="form-label" for="id_first_name">Имя</label>
+        <input type="text" name="first_name"
+               maxlength="150" class="form-control {% if form.first_name.value %}is-valid{% endif %}"
+               placeholder="Имя" id="id_first_name"
+               value="{% if form.first_name.value %}{{ form.first_name.value }}{% endif %}" required>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="id_last_name">Фамилия</label>
+        <input type="text" name="last_name"
+               maxlength="150" class="form-control {% if form.last_name.value %}is-valid{% endif %}"
+               placeholder="Фамилия" required id="id_last_name"
+               value="{% if form.last_name.value %}{{ form.last_name.value }}{% endif %}">
+        {% if form.last_name.errors %}
+        <div class="invalid-feedback">{{ form.last_name.errors }}</div>
+        {% endif %}
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="id_username">Имя пользователя</label>
+        <input type="text" name="username"
+               maxlength="150" autofocus
+               class="form-control {% if form.username.value %}{% if form.username.errors %}is-invalid{% else %}is-valid{% endif %}{% endif %}"
+               placeholder="Имя пользователя" id="id_username"
+               value="{% if form.username.value %}{{ form.username.value }}{% endif %}" required>
+        <div class="invalid-feedback">{{ form.username.errors }}</div>
+        <div class="form-text">Обязательное поле. Не более 150 символов. Только буквы, цифры и символы @/./+/-/_.</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="id_password1">Пароль</label>
+        <input type="password" name="password1"
+               autocomplete="new-password"
+               class="form-control {% if form.password1.value %}is-valid{% endif %}"
+               placeholder="Пароль" id="id_password1"
+               value="{% if form.password1.value %}{{ form.password1.value }}{% endif %}"
+               required>
+        <div class="invalid-feedback">{{ form.password1.errors }}</div>
+        <div class="form-text">
+            <ul>
+                <li>Ваш пароль должен содержать как минимум 3 символа.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="id_password2">Подтверждение пароля</label>
+        <input type="password" name="password2"
+               autocomplete="new-password"
+               class="form-control {% if form.password2.value %}{% if form.password2.errors %}is-invalid{% else %}is-valid{% endif %}{% endif %}"
+               placeholder="Подтверждение пароля" id="id_password2"
+               value="{% if form.password2.value %}{{ form.password2.value }}{% endif %}"
+               required>
+        <div class="invalid-feedback list-unstyled">{{ form.password2.errors }}</div>
+    </div>
+    <div class="form-text">Для подтверждения введите, пожалуйста, пароль ещё раз.</div>
+    <input class="btn btn-primary" type="submit" value="Зарегистрировать">
+</form>
+{% endblock content %}
