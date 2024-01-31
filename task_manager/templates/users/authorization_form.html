@@ -5,7 +5,7 @@
 {% block content %}
 <h1 class="my-4">Вход</h1>
 
-<form method="post" action="{% url 'authorization_user' %}">
+<form class="needs-validation" method="post" action="{% url 'authorization_user' %}">
   {% csrf_token %}
     {% if form.non_field_errors %}
     <div class="list-unstyled text-danger">{{ form.non_field_errors }}</div>
@@ -14,19 +14,18 @@
         <label class="form-label" for="id_username">Имя пользователя</label>
         <input type="text" name="username"
                  autofocus autocapitalize="none" autocomplete="username"
-                 maxlength="150" class="form-control"
+                 maxlength="150"
+                 class="form-control {% if form.non_field_errors %}is-valid{% endif %}"
                  placeholder="Имя пользователя" required id="id_username"
                  value="{% if form.username.value %}{{ form.username.value }}{% endif %}">
     </div>
     <div class="mb-3">
         <label class="form-label" for="id_password">Пароль</label>
         <input type="password" name="password"
-               autocomplete="current-password" class="form-control"
+               autocomplete="current-password"
+               class="form-control {% if form.non_field_errors %}is-valid{% endif %}"
                placeholder="Пароль" required id="id_password"
                value="{% if form.password.value %}{{ form.password.value }}{% endif %}">
-        {% if form.password.messages.errors %}
-            <div class="alert alert-danger alert-dismissible fade show">{{ form.password.messages.errors }}</div>
-        {% endif %}
     </div>
     <input class="btn btn-primary" type="submit" value="Войти">
 </form>
