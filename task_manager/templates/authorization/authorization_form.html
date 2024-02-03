@@ -6,7 +6,7 @@
 <h1 class="my-4">Вход</h1>
 
 <form class="needs-validation" method="post" action="{% url 'authorization_user' %}">
-  {% csrf_token %}
+    {% csrf_token %}
     {% if form.non_field_errors %}
     <div class="list-unstyled text-danger">{{ form.non_field_errors }}</div>
     {% endif %}
