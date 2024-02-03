@@ -22,4 +22,6 @@ urlpatterns = [
     path('', views.index),
     path('admin/', admin.site.urls),
     path('users/', include('task_manager.users.urls')),
+    path('login/', include('task_manager.authorization.urls')),
+    path('create/', include('task_manager.registration.urls')),
 ]
