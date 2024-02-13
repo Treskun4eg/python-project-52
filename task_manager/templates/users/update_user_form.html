@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% load bootstrap4 i18n %}
+{% load bootstrap5 i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
@@ -19,7 +19,9 @@
         <input type="text" name="last_name"
                value="Popeluska" maxlength="150"
                class="form-control" placeholder="Фамилия"
-               required id="id_last_name"></div><div class="mb-3">
+               required id="id_last_name">
+    </div>
+    <div class="mb-3">
         <label class="form-label" for="id_username">Имя пользователя</label>
         <input type="text" name="username"
                value="pav_pop" maxlength="150"
@@ -37,8 +39,12 @@
                 <li>Ваш пароль должен содержать как минимум 3 символа.</li>
             </ul>
         </div>
-</div><div class="mb-3"><label class="form-label" for="id_password2">Подтверждение пароля</label><input type="password" name="password2" autocomplete="new-password" class="form-control" placeholder="Подтверждение пароля" required id="id_password2"><div class="form-text">Для подтверждения введите, пожалуйста, пароль ещё раз.</div>
-</div>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" for="id_password2">Подтверждение пароля</label>
+        <input type="password" name="password2" autocomplete="new-password" class="form-control" placeholder="Подтверждение пароля" required id="id_password2">
+        <div class="form-text">Для подтверждения введите, пожалуйста, пароль ещё раз.</div>
+    </div>
     <input class="btn btn-primary" type="submit" value="Изменить">
 </form>
 {% endblock content %}

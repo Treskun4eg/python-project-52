@@ -1,5 +1,5 @@
 {% extends 'layout.html' %}
-{% load bootstrap4 i18n %}
+{% load bootstrap5 i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
 {% block content %}
@@ -21,9 +21,9 @@
       <td>{{ user.id }}</td>
       <td>{{ user.first_name }}</td>
       <td>{{ user.last_name }}</td>
-      <td>{{ user.created_at|date:"d.m.Y" }} {{ user.created_at|time:"H:i" }}</td>
+      <td>{{ user.date_joined|date:"d.m.Y" }} {{ user.date_joined|time:"H:i" }}</td>
       <td>
-          <a href="/users/104/update/">Изменить</a>
+          <a href="{% url 'update_user' user.id %}">Изменить</a>
           <br>
           <a href="/users/104/delete/">Удалить</a>
       </td>
