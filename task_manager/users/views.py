@@ -4,7 +4,7 @@ from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
 from django.contrib.auth.models import User
-from django.views.generic import CreateView, UpdateView
+from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from django.contrib import messages
 from django.views.generic.edit import BaseUpdateView
 
@@ -13,13 +13,14 @@ from django.utils.translation import gettext_lazy as _
 
 
 # Create your views here.
-class IndexView(View):
+class IndexView(ListView):
 
-    def get(self, request, *args, **kwargs):
-        users = User.objects.all()
-        return render(request, 'users/index.html', {
-            'users': users,
-        })
+    template_name = 'users/index.html'
+    model = User
+    context_object_name = 'users'
+    extra_context = {
+        'title': _('Users')
+    }
 
 
 class UserRegistrationFormView(CreateView):

@@ -19,3 +19,8 @@ class UserLoginFormView(LoginView):
         'title': _('Вход'),
         'button_text': _('Войти'),
     }
+
+
+class UserLogoutFormView(LogoutView):
+    next_page = reverse_lazy('index')
+    success_message = _('You are logged out')
