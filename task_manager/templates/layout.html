@@ -1,3 +1,7 @@
+{% load i18n %}
+{% get_current_language as LANGUAGE_CODE %}
+{% load bootstrap5 %}
+
 <!DOCTYPE html>
 <html lang="ru-ru">
   <head>
@@ -13,6 +17,7 @@
             </header>
         </div>
     <div class="container wrapper flex-grow-1">
+        {% bootstrap_messages %}
         {% block content %}
         {% endblock %}
     </div>

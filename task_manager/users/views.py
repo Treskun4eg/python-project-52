@@ -1,9 +1,11 @@
 from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.mixins import LoginRequiredMixin
+from task_manager.mixins import UserEditPermissionMixin
 from django.contrib.auth.forms import UserChangeForm, SetPasswordForm
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
 from django.views import View
-from django.contrib.auth.models import User
+from .models import User
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from django.contrib import messages
 from django.views.generic.edit import BaseUpdateView
@@ -28,7 +30,7 @@ class UserRegistrationFormView(CreateView):
     template_name = 'form.html'
     model = User
     form_class = UserForm
-    success_url = reverse_lazy('authorization_user')
+    success_url = reverse_lazy('login_user')
     success_message = _('User is successfully registered')
     extra_context = {
         'title': _('Регистрация'),
@@ -36,7 +38,7 @@ class UserRegistrationFormView(CreateView):
     }
 
 
-class UserUpdateFormView(UpdateView):
+class UserUpdateFormView(UserEditPermissionMixin, LoginRequiredMixin, UpdateView):
 
     model = User
     form_class = UserForm
