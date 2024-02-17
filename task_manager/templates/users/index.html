@@ -2,9 +2,11 @@
 {% load bootstrap5 i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
-{% block content %}
-<h1 class="my-4">Пользователи</h1>
+{% block title %}
+    {{ title }} | {% trans 'Task Manager' %}
+{% endblock %}
 
+{% block content %}
 <table class="table table-striped">
   <thead>
     <tr>
@@ -19,13 +21,13 @@
     {% for user in users %}
     <tr>
       <td>{{ user.id }}</td>
-      <td>{{ user.first_name }}</td>
-      <td>{{ user.last_name }}</td>
+      <td>{{ user.username }}</td>
+      <td>{{ user.first_name }} {{ user.last_name }}</td>
       <td>{{ user.date_joined|date:"d.m.Y" }} {{ user.date_joined|time:"H:i" }}</td>
       <td>
           <a href="{% url 'update_user' user.id %}">Изменить</a>
           <br>
-          <a href="/users/104/delete/">Удалить</a>
+          <a href="{% url 'delete_user' user.id %}">Удалить</a>
       </td>
     </tr>
     {% endfor  %}

@@ -138,4 +138,5 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SHELL_PLUS_PRINT_SQL = True
 
-AUTH_USER_MODEL = 'users.User'
+# Кастомная модель пользователя
+# AUTH_USER_MODEL = 'users.User'

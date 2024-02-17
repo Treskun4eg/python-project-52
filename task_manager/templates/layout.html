@@ -2,6 +2,11 @@
 {% get_current_language as LANGUAGE_CODE %}
 {% load bootstrap5 %}
 
+
+{% bootstrap_css %}
+{% bootstrap_javascript %}
+
+
 <!DOCTYPE html>
 <html lang="ru-ru">
   <head>
@@ -16,11 +21,10 @@
                 {% include "navigation.html" %}
             </header>
         </div>
-    <div class="container wrapper flex-grow-1">
-        {% bootstrap_messages %}
-        {% block content %}
-        {% endblock %}
-    </div>
+        <main class="container wrapper flex-grow-1">
+            {% bootstrap_messages %}
+            {% block content %}{% endblock %}
+        </main>
         <footer>
             <div class="container my-5 pt-4 border-top">
                 <a target="_blank" href="https://ru.hexlet.io">Hexlet</a>

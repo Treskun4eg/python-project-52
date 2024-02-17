@@ -2,6 +2,10 @@
 {% load bootstrap5 i18n %}
 {% get_current_language as LANGUAGE_CODE %}
 
+{% block title %}
+    {{ title }} | {% trans 'Task Manager' %}
+{% endblock %}
+
 {% block content %}
 <div class="container wrapper flex-grow-1">
     <h1 class="my-4"></h1>
