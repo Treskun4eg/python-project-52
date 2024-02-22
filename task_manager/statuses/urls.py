@@ -1,0 +1,9 @@
+from django.urls import path
+from task_manager.statuses import views
+
+urlpatterns = [
+    path('', views.StatusesIndexView.as_view(), name='statuses_index'),
+    path('create/', views.StatusCreateFormView.as_view(), name='status_create'),
+    # path('<int:pk>/update/', views.StatuseUpdateFormView.as_view(), name='status_update'),
+    # path('<int:pk>/delete/', views.StatuseDeleteFormView.as_view(), name='status_delete'),
+]
