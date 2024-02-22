@@ -19,7 +19,7 @@ class IndexView(ListView):
     model = User
     context_object_name = 'users'
     extra_context = {
-        'title': _('Пользователи')
+        'title': _('Users')
     }
 
 
@@ -29,10 +29,10 @@ class UserRegistrationFormView(SuccessMessageMixin, CreateView):
     model = User
     form_class = UserForm
     success_url = reverse_lazy('login_user')
-    success_message = _('Пользователь успешно зарегистрирован')
+    success_message = _('User successfully registered')
     extra_context = {
-        'title': _('Регистрация'),
-        'button_text': _('Зарегистрировать'),
+        'title': _('Registration'),
+        'button_text': _('Register'),
     }
 
 
@@ -42,10 +42,10 @@ class UserUpdateFormView(SuccessMessageMixin, UserEditPermissionMixin, LoginRequ
     form_class = UserForm
     template_name = 'form.html'
     success_url = reverse_lazy('users_index')
-    success_message = 'Пользователь успешно изменен'
+    success_message = 'User successfully changed'
     extra_context = {
-        'title': _('Редактировать'),
-        'button_text': _('Изменить'),
+        'title': _('Edit'),
+        'button_text': _('Update'),
     }
 
 
@@ -55,8 +55,8 @@ class UserDeleteFormView(SuccessMessageMixin, UserEditPermissionMixin,
     model = User
     template_name = 'users/delete_user.html'
     success_url = reverse_lazy('users_index')
-    success_message = _('Пользователь успешно удален')
+    success_message = _('User deleted successfully')
     extra_context = {
-        'title': _('Удаление пользователя'),
-        'button_text': _('Удалить'),
+        'title': _('Deleting a user'),
+        'button_text': _('Delete'),
     }

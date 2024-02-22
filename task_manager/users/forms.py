@@ -19,7 +19,7 @@ class UserForm(UserCreationForm):
         username = self.cleaned_data.get('username')
         try:
             user = User.objects.exclude(pk=self.instance.pk).get(username=username)
-            raise forms.ValidationError('Пользователь с таким именем уже существует.')
+            raise forms.ValidationError('A user with the same name already exists.')
         except User.DoesNotExist:
             return username
 
