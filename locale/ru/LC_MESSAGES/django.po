@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-02-22 23:58+0100\n"
+"POT-Creation-Date: 2024-02-24 19:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -19,6 +19,10 @@ msgstr ""
 "Plural-Forms: nplurals=4; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && "
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
+
+#: task_manager/mixins.py:18
+msgid "You have no rights to change another user."
+msgstr "У вас нет прав изменить другого пользователя."
 
 #: task_manager/statuses/models.py:21
 #: task_manager/templates/statuses/index.html:22
@@ -47,8 +51,37 @@ msgstr "Создать статус"
 msgid "Create"
 msgstr "Создать"
 
+#: task_manager/statuses/views.py:47
+msgid "Change of status"
+msgstr "Создать статус"
+
+#: task_manager/statuses/views.py:48
+#: task_manager/templates/statuses/index.html:47
+#: task_manager/templates/users/index.html:28 task_manager/users/views.py:48
+msgid "Update"
+msgstr "Изменить"
+
+#: task_manager/statuses/views.py:57
+msgid "You cannot delete staus while it is in use"
+msgstr "Вы не можете удалить статус, пока он используется."
+
+#: task_manager/statuses/views.py:60
+msgid "Status deleted successfully"
+msgstr "Статус успешно удалён"
+
+#: task_manager/statuses/views.py:62
+msgid "Deleting a status"
+msgstr "Удаление статуса"
+
+#: task_manager/statuses/views.py:63
+#: task_manager/templates/statuses/index.html:49
+#: task_manager/templates/users/index.html:30 task_manager/users/views.py:61
+msgid "Delete"
+msgstr "Удалить"
+
 #: task_manager/templates/form.html:6 task_manager/templates/index.html:6
 #: task_manager/templates/navigation.html:6
+#: task_manager/templates/statuses/delete.html:6
 #: task_manager/templates/statuses/index.html:6
 #: task_manager/templates/users/delete_user.html:6
 #: task_manager/templates/users/index.html:6 task_manager/views.py:12
@@ -79,24 +112,15 @@ msgstr "Вход"
 msgid "Registration"
 msgstr "Регистрация"
 
+#: task_manager/templates/statuses/delete.html:12
+#: task_manager/templates/users/delete_user.html:12
+msgid "Are you sure you want to delete"
+msgstr "Вы уверены, что хотите удалить"
+
 #: task_manager/templates/statuses/index.html:29
 #: task_manager/templates/users/index.html:16
 msgid "Creation date"
 msgstr "Дата создания"
-
-#: task_manager/templates/statuses/index.html:47
-#: task_manager/templates/users/index.html:28 task_manager/users/views.py:48
-msgid "Update"
-msgstr "Изменить"
-
-#: task_manager/templates/statuses/index.html:49
-#: task_manager/templates/users/index.html:30 task_manager/users/views.py:61
-msgid "Delete"
-msgstr "Удалить"
-
-#: task_manager/templates/users/delete_user.html:12
-msgid "Are you sure you want to delete"
-msgstr "Вы уверены, что хотите удалить"
 
 #: task_manager/templates/users/index.html:14
 msgid "Username"
