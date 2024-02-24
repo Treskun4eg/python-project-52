@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.mixins import UserEditPermissionMixin
+from task_manager.mixins import UserEditPermissionMixin, DeleteProtectionMixin
 from django.urls import reverse_lazy
 
 
@@ -23,7 +23,7 @@ class StatusesIndexView(ListView):
     }
 
 
-class StatusCreateFormView(SuccessMessageMixin, CreateView):
+class StatusCreateFormView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
 
     template_name = 'form.html'
     model = StatusesModel
@@ -34,29 +34,31 @@ class StatusCreateFormView(SuccessMessageMixin, CreateView):
         'title': _('Create status'),
         'button_text': _('Create'),
     }
-#
-#
-# class UserUpdateFormView(SuccessMessageMixin, UserEditPermissionMixin, LoginRequiredMixin, UpdateView):
-#
-#     model = User
-#     form_class = UserForm
-#     template_name = 'form.html'
-#     success_url = reverse_lazy('users_index')
-#     success_message = 'Пользователь успешно изменен'
-#     extra_context = {
-#         'title': _('Редактировать'),
-#         'button_text': _('Изменить'),
-#     }
-#
-#
-# class UserDeleteFormView(SuccessMessageMixin, UserEditPermissionMixin,
-#                          LoginRequiredMixin, DeleteView):
-#
-#     model = User
-#     template_name = 'users/delete_user.html'
-#     success_url = reverse_lazy('users_index')
-#     success_message = _('Пользователь успешно удален')
-#     extra_context = {
-#         'title': _('Удаление пользователя'),
-#         'button_text': _('Удалить'),
-#     }
+
+
+class StatusUpdateFormView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
+
+    model = StatusesModel
+    form_class = StatuseForm
+    template_name = 'form.html'
+    success_url = reverse_lazy('statuses_index')
+    success_message = 'Status changed successfully'
+    extra_context = {
+        'title': _('Change of status'),
+        'button_text': _('Update'),
+    }
+
+
+class StatusDeleteFormView(SuccessMessageMixin, LoginRequiredMixin,
+                           DeleteProtectionMixin, DeleteView):
+
+    model = StatusesModel
+    template_name = 'statuses/delete.html'
+    protected_message = _('You cannot delete staus while it is in use')
+    protected_url = reverse_lazy('statuses_index')
+    success_url = reverse_lazy('statuses_index')
+    success_message = _('Status deleted successfully')
+    extra_context = {
+        'title': _('Deleting a status'),
+        'button_text': _('Delete'),
+    }
