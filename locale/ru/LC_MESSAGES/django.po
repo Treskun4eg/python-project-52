@@ -53,7 +53,7 @@ msgstr "Создать"
 
 #: task_manager/statuses/views.py:47
 msgid "Change of status"
-msgstr "Создать статус"
+msgstr "Изменить статус"
 
 #: task_manager/statuses/views.py:48
 #: task_manager/templates/statuses/index.html:47
