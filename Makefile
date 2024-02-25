@@ -23,9 +23,8 @@ check:
 lint:
 	poetry run flake8 .
 
-.PHONY: test
 test:
-	@poetry run pytest
+	poetry run python3 manage.py test
 
 makemessages:
 	poetry run django-admin makemessages -l ru
