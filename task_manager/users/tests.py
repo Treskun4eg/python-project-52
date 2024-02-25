@@ -12,6 +12,7 @@ with open('task_manager/fixtures/user_invalid.json') as file:
 
 
 class UserRegistrationFormViewTests(TestCase):
+
     def test_create_view(self):
         response = self.client.post(reverse_lazy('registration_user'), new_user)
         self.assertEqual(response.status_code, 302)
@@ -28,9 +29,8 @@ class UserRegistrationFormViewTests(TestCase):
 
 
 class UserUpdateFormViewTests(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(pk='2', username='test_user', password='qwe1234567')
-        self.user.save()
+
+    fixtures = ['users.json']
 
     def test_update_view(self):
         update = {
@@ -40,14 +40,13 @@ class UserUpdateFormViewTests(TestCase):
         }
         user = User.objects.get(pk=2)
         self.client.force_login(user=user)
-        response = self.client.post(reverse('update_user', kwargs={'pk': self.user.pk}), update)
+        response = self.client.post(reverse('update_user', kwargs={'pk': 2}), update)
         self.assertEqual(response.status_code, 302)
-        self.user.refresh_from_db()
-        user = User.objects.get(pk=self.user.pk)
+        user = User.objects.get(pk=2)
         self.assertEqual(user.username, update['username'])
 
     def test_update_logout(self):
-        response = self.client.post(reverse('update_user', kwargs={'pk': self.user.pk}))
+        response = self.client.post(reverse('update_user', kwargs={'pk': 2}))
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('users_index'))
 
@@ -59,18 +58,15 @@ class UserUpdateFormViewTests(TestCase):
         }
         user = User.objects.get(pk=2)
         self.client.force_login(user=user)
-        response = self.client.post(reverse('update_user', kwargs={'pk': self.user.pk}), update)
+        response = self.client.post(reverse('update_user', kwargs={'pk': 2}), update)
         self.assertEqual(response.status_code, 200)
-        self.user.refresh_from_db()
-        user = User.objects.get(pk=self.user.pk)
+        user = User.objects.get(pk=2)
         self.assertNotEqual(user.username, update['username'])
 
 
 class UserDeleteFormViewTests(TestCase):
-    def setUp(self):
-        self.user = User.objects.create_user(pk='3', username='test_user2', password='qwe1234567')
-        self.user = User.objects.create_user(pk='2', username='test_user3', password='qwe12345678')
-        self.user.save()
+
+    fixtures = ['users.json']
 
     def test_delete_user(self):
         user = User.objects.get(pk=3)

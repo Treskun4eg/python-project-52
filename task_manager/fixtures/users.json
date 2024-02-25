@@ -1,0 +1,32 @@
+[
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "first_name": "Arek",
+      "last_name": "Rakicki",
+      "username": "arek_rak",
+      "password": "12345678"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "first_name": "David",
+      "last_name": "Marszalski",
+      "username": "dava_mar",
+      "password": "12345678"
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "first_name": "Malgozata",
+      "last_name": "Dombrowska",
+      "username": "malgoz_domb",
+      "password": "12345678"
+    }
+  }
+]
