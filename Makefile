@@ -17,18 +17,22 @@ setup:
 shell:
 	@$(MANAGE) shell_plus --ipython
 
+.PHONY: check
 check:
 	poetry check
 
 lint:
 	poetry run flake8 .
 
+.PHONY: test
 test:
 	poetry run python3 manage.py test
 
+.PHONY: makemessages
 makemessages:
 	poetry run django-admin makemessages -l ru
 
+.PHONY: compilemessages
 compilemessages:
 	poetry run django-admin compilemessages
 

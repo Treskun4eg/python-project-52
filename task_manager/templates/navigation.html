@@ -23,7 +23,7 @@
                   <a class="nav-link" href="#">{% trans 'Labels' %}</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link" href="#">{% trans 'Tasks' %}</a>
+                  <a class="nav-link" href="{% url 'tasks_index' %}">{% trans 'Tasks' %}</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link" href="{% url 'logout_user' %}">{% trans 'Log Out' %}</a>
