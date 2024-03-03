@@ -25,7 +25,7 @@ class StatusCreateFormViewTests(TestCase):
         self.assertRedirects(response, reverse_lazy('statuses_index'))
 
 
-class UserUpdateFormViewTests(TestCase):
+class StatusUpdateFormViewTests(TestCase):
 
     fixtures = ['statuses.json', 'users.json']
 
@@ -45,8 +45,7 @@ class UserUpdateFormViewTests(TestCase):
         self.assertRedirects(response, reverse_lazy('statuses_index'))
 
 
-
-class UserDeleteFormViewTests(TestCase):
+class StatusDeleteFormViewTests(TestCase):
 
     fixtures = ['statuses.json', 'users.json']
 
