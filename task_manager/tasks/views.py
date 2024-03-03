@@ -9,14 +9,19 @@ from .forms import TaskForm
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from django.utils.translation import gettext_lazy as _
 
+from task_manager.tasks.filters import TaskFilter
+from django_filters.views import FilterView
 
-class TasksIndexView(ListView):
+
+class TasksIndexView(LoginRequiredMixin, FilterView):
 
     template_name = 'tasks/index.html'
     model = TasksModel
+    filterset_class = TaskFilter
     context_object_name = 'tasks'
     extra_context = {
-        'title': _('Tasks')
+        'title': _('Tasks'),
+        'button_text': _('Show'),
     }
 
 

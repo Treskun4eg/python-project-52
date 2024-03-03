@@ -41,6 +41,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'bootstrap5',
     'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -53,7 +54,7 @@ INSTALLED_APPS = [
     'task_manager.statuses',
     'task_manager.tasks',
     'task_manager.labels',
-    'bootstrap5',
+    'django_filters',
 ]
 
 MIDDLEWARE = [
