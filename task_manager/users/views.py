@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.mixins import UserEditPermissionMixin
+from task_manager.mixins import UserEditPermissionMixin, DeleteProtectionMixin
 from django.urls import reverse_lazy
 
 
@@ -50,10 +50,12 @@ class UserUpdateFormView(SuccessMessageMixin, UserEditPermissionMixin, LoginRequ
 
 
 class UserDeleteFormView(SuccessMessageMixin, UserEditPermissionMixin,
-                         LoginRequiredMixin, DeleteView):
+                         LoginRequiredMixin, DeleteProtectionMixin, DeleteView):
 
     model = User
     template_name = 'users/delete_user.html'
+    protected_message = _('Cannot delete user because it is in use')
+    protected_url = reverse_lazy('users_index')
     success_url = reverse_lazy('users_index')
     success_message = _('User deleted successfully')
     extra_context = {
