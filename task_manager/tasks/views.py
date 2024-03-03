@@ -3,10 +3,11 @@ from django.contrib.messages.views import SuccessMessageMixin
 from task_manager.mixins import DeleteProtectionMixin
 from django.urls import reverse_lazy
 
+from task_manager.labels.models import LabelsModel
 from .models import TasksModel
 from .forms import TaskForm
 
-from django.views.generic import CreateView, UpdateView, ListView, DeleteView
+from django.views.generic import CreateView, UpdateView, ListView, DeleteView, DetailView
 from django.utils.translation import gettext_lazy as _
 
 from task_manager.tasks.filters import TaskFilter
@@ -23,6 +24,18 @@ class TasksIndexView(LoginRequiredMixin, FilterView):
         'title': _('Tasks'),
         'button_text': _('Show'),
     }
+
+
+class TaskDetailView(DetailView):
+    model = TasksModel
+    template_name = "tasks/task.html"
+    context_object_name = "task"
+    labels = LabelsModel.objects.all()
+    extra_context = {'title': _('Task view'),
+                     'btn_update': _('Update'),
+                     'btn_delete': _('Delete'),
+                     'labels': labels
+                     }
 
 
 class TaskCreateFormView(SuccessMessageMixin, LoginRequiredMixin, CreateView):
