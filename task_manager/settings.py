@@ -65,6 +65,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 ROOT_URLCONF = 'task_manager.urls'
@@ -147,6 +148,22 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SHELL_PLUS_PRINT_SQL = True
+
+FIXTURE_DIRS = ['task_manager/fixtures']
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://0.0.0.0',
+    'https://127.0.0.1',
+    'https://task-manager-hia7.onrender.com',
+    'https://python-project-52-production-264f.up.railway.app',
+]
+
+ROLLBAR = {
+    'access_token': '<ServerAccessToken>',
+    'environment': 'development' if DEBUG else 'production',
+    'code_version': '1.0',
+    'root': BASE_DIR,
+}
 
 # Кастомная модель пользователя
 # AUTH_USER_MODEL = 'users.User'
