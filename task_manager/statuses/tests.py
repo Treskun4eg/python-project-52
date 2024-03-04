@@ -49,7 +49,7 @@ class StatusDeleteFormViewTests(TestCase):
 
     fixtures = ['statuses.json', 'users.json']
 
-    def test_delete_user(self):
+    def test_delete_status(self):
         user = User.objects.get(pk=3)
         self.client.force_login(user=user)
         self.assertTrue(StatusesModel.objects.filter(pk=3).exists())

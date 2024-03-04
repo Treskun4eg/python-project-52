@@ -1,9 +1,18 @@
 [tool.poetry]
 name = "hexlet-code"
 version = "0.1.0"
-description = ""
+description = "A project management program that allows you to centrally manage tasks and their timely completion."
 authors = ["Treskun4eg <wagamamanowelli@gmail.com>"]
 readme = "README.md"
+packages = [
+    {include = "task_manager"}
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Topic :: Software Development :: Build Tools",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Django"
+]
 
 [tool.poetry.dependencies]
 python = "^3.10"

@@ -22,7 +22,7 @@ class TaskCreateFormViewTests(TestCase):
         self.assertEqual(response.status_code, 302)
         self.assertEqual(TasksModel.objects.all().count(), 4)
 
-    def test_redirect_status(self):
+    def test_redirect_task(self):
         user = User.objects.get(pk=1)
         status = StatusesModel.objects.get(pk=1)
         self.client.force_login(user=user)
@@ -58,14 +58,28 @@ class TaskUpdateFormViewTests(TestCase):
         self.assertRedirects(response, reverse_lazy('tasks_index'))
 
 
-class UserDeleteFormViewTests(TestCase):
+class TaskDeleteFormViewTests(TestCase):
 
     fixtures = ['statuses.json', 'users.json', 'tasks.json']
 
-    def test_delete_user(self):
+    def test_delete_task(self):
         user = User.objects.get(pk=3)
         self.client.force_login(user=user)
         self.assertTrue(TasksModel.objects.filter(pk=3).exists())
         response = self.client.post(reverse('task_delete', kwargs={'pk': 3}))
         self.assertEqual(response.status_code, 302)
         self.assertFalse(TasksModel.objects.filter(pk=3).exists())
+
+
+class TaskListFilter(TestCase):
+
+    fixtures = ['statuses.json', 'users.json', 'tasks.json']
+
+    def test_task_filter(self):
+        user = User.objects.get(pk=1)
+        self.client.force_login(user=user)
+        response = self.client.get(
+            reverse_lazy('tasks_index'),
+            {'executor': 1}
+        )
+        self.assertEqual(response.context['tasks'].count(), 1)
