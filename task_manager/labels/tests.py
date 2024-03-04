@@ -1,61 +1,58 @@
 from django.test import TestCase
 from django.urls import reverse_lazy, reverse
-from .models import StatusesModel
+from .models import LabelsModel
 from django.contrib.auth.models import User
 
 
-class StatusCreateFormViewTests(TestCase):
+class LabelCreateFormViewTests(TestCase):
 
-    fixtures = ['statuses.json', 'users.json']
+    fixtures = ['labels.json', 'users.json']
 
     def test_create_view(self):
         user = User.objects.get(pk=1)
         self.client.force_login(user=user)
-        response = self.client.get(reverse('status_create'))
+        response = self.client.get(reverse('label_create'))
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(StatusesModel.objects.all().count(), 3)
-        response = self.client.post(reverse_lazy('status_create'), {'name': 'new_status'})
+        self.assertEqual(LabelsModel.objects.all().count(), 2)
+        response = self.client.post(reverse_lazy('label_create'), {'name': 'new_label'})
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(StatusesModel.objects.all().count(), 4)
+        self.assertEqual(LabelsModel.objects.all().count(), 3)
 
-    def test_redirect_status(self):
+    def test_redirect_label(self):
         user = User.objects.get(pk=1)
         self.client.force_login(user=user)
-        response = self.client.post(reverse_lazy('status_create'), {'name': 'new_status1'})
-        self.assertRedirects(response, reverse_lazy('statuses_index'))
+        response = self.client.post(reverse_lazy('label_create'), {'name': 'new_status1'})
+        self.assertRedirects(response, reverse_lazy('labels_index'))
 
 
-class StatusUpdateFormViewTests(TestCase):
+class LabelUpdateFormViewTests(TestCase):
 
-    fixtures = ['statuses.json', 'users.json']
+    fixtures = ['labels.json', 'users.json']
 
     def test_update_view(self):
         user = User.objects.get(pk=1)
         self.client.force_login(user=user)
-        response = self.client.post(reverse('status_update', kwargs={'pk': 1}), {'name': 'update_status'})
+        response = self.client.post(reverse('label_update', kwargs={'pk': 1}), {'name': 'update_label'})
         self.assertEqual(response.status_code, 302)
-        status = StatusesModel.objects.get(pk=1)
-        self.assertEqual(status.name, 'update_status')
+        status = LabelsModel.objects.get(pk=1)
+        self.assertEqual(status.name, 'update_label')
 
     def test_update_redirect(self):
         user = User.objects.get(pk=1)
         self.client.force_login(user=user)
-        response = self.client.post(reverse('status_update', kwargs={'pk': 1}), {'name': 'update_status'})
+        response = self.client.post(reverse('label_update', kwargs={'pk': 1}), {'name': 'update_label'})
         self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, reverse_lazy('statuses_index'))
+        self.assertRedirects(response, reverse_lazy('labels_index'))
 
 
-class StatusDeleteFormViewTests(TestCase):
+class LabelDeleteFormViewTests(TestCase):
 
-    fixtures = ['statuses.json', 'users.json']
+    fixtures = ['labels.json', 'users.json']
 
-    def test_delete_user(self):
+    def test_delete_label(self):
         user = User.objects.get(pk=3)
         self.client.force_login(user=user)
-        self.assertTrue(StatusesModel.objects.filter(pk=3).exists())
-        response = self.client.post(reverse('status_delete', kwargs={'pk': 3}))
+        self.assertTrue(LabelsModel.objects.filter(pk=2).exists())
+        response = self.client.post(reverse('label_delete', kwargs={'pk': 2}))
         self.assertEqual(response.status_code, 302)
-        self.assertFalse(StatusesModel.objects.filter(pk=3).exists())
-from django.test import TestCase
-
-# Create your tests here.
+        self.assertFalse(LabelsModel.objects.filter(pk=2).exists())

@@ -1,0 +1,20 @@
+[
+    {
+      "model": "labels.LabelsModel",
+      "pk": 1,
+      "fields": {
+        "name": "new_fetch",
+        "created_at": "2023-06-20T12:55:58.807Z",
+        "updated_at": "2023-10-02T08:19:52.165Z"
+      }
+    },
+    {
+      "model": "labels.LabelsModel",
+      "pk": 2,
+      "fields": {
+        "name": "refactoring",
+        "created_at": "2024-09-19T09:58:58.977Z",
+        "updated_at": "2024-10-02T08:19:52.165Z"
+      }
+    }
+]
