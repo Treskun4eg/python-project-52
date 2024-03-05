@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 22:31+0100\n"
+"POT-Creation-Date: 2024-03-05 22:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -82,7 +82,7 @@ msgstr "Удалить метку"
 #: task_manager/templates/statuses/index.html:49
 #: task_manager/templates/tasks/index.html:58
 #: task_manager/templates/tasks/task.html:50
-#: task_manager/templates/users/index.html:30 task_manager/users/views.py:63
+#: task_manager/templates/users/index.html:30
 msgid "Delete"
 msgstr "Удалить"
 
@@ -265,6 +265,10 @@ msgstr "Пользователь успешно удален"
 #: task_manager/users/views.py:62
 msgid "Deleting a user"
 msgstr "Удалить пользователя"
+
+#: task_manager/users/views.py:63
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: task_manager/views.py:19
 msgid "You are logged in"

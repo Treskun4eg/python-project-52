@@ -60,5 +60,5 @@ class UserDeleteFormView(SuccessMessageMixin, UserEditPermissionMixin,
     success_message = _('User deleted successfully')
     extra_context = {
         'title': _('Deleting a user'),
-        'button_text': _('Delete'),
+        'button_text': _('Yes, delete'),
     }
