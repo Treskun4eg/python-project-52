@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-04 22:52+0100\n"
+"POT-Creation-Date: 2024-03-05 22:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/tasks/filters.py:10
+#: task_manager/labels/models.py:26 task_manager/tasks/filters.py:10
 msgid "Label"
 msgstr "Меткa"
 
@@ -218,7 +218,7 @@ msgstr "Дата создания"
 msgid "Users"
 msgstr "Пользователи"
 
-#: task_manager/templates/navigation.html:29 task_manager/views.py:22
+#: task_manager/templates/navigation.html:29
 msgid "Log Out"
 msgstr "Выход"
 
@@ -265,6 +265,10 @@ msgstr "Удалить пользователя"
 #: task_manager/views.py:19
 msgid "You are logged in"
 msgstr "Вы вошли в систему"
+
+#: task_manager/views.py:22
+msgid "Logged"
+msgstr "Войти"
 
 #: task_manager/views.py:28 task_manager/views.py:31
 msgid "You are logged out"
