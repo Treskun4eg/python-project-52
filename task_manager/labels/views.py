@@ -60,5 +60,5 @@ class LabelDeleteFormView(SuccessMessageMixin, LoginRequiredMixin,
     success_message = _('Label deleted successfully')
     extra_context = {
         'title': _('Deleting a label'),
-        'button_text': _('Delete'),
+        'button_text': _('Yes, delete'),
     }

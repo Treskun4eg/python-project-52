@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 22:54+0100\n"
+"POT-Creation-Date: 2024-03-05 23:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,14 +77,9 @@ msgid "Deleting a label"
 msgstr "Удалить метку"
 
 #: task_manager/labels/views.py:63 task_manager/statuses/views.py:63
-#: task_manager/tasks/views.py:36 task_manager/tasks/views.py:82
-#: task_manager/templates/labels/index.html:49
-#: task_manager/templates/statuses/index.html:49
-#: task_manager/templates/tasks/index.html:58
-#: task_manager/templates/tasks/task.html:50
-#: task_manager/templates/users/index.html:30
-msgid "Delete"
-msgstr "Удалить"
+#: task_manager/tasks/views.py:82 task_manager/users/views.py:63
+msgid "Yes, delete"
+msgstr "Да, удалить"
 
 #: task_manager/mixins.py:18
 msgid "You have no rights to change another user."
@@ -160,6 +155,14 @@ msgstr "Показать"
 #: task_manager/tasks/views.py:34 task_manager/templates/tasks/task.html:11
 msgid "Task view"
 msgstr "Просмотр задачи"
+
+#: task_manager/tasks/views.py:36 task_manager/templates/labels/index.html:49
+#: task_manager/templates/statuses/index.html:49
+#: task_manager/templates/tasks/index.html:58
+#: task_manager/templates/tasks/task.html:50
+#: task_manager/templates/users/index.html:30
+msgid "Delete"
+msgstr "Удалить"
 
 #: task_manager/tasks/views.py:47
 msgid "Task successfully created"
@@ -269,10 +272,6 @@ msgstr "Пользователь успешно удален"
 #: task_manager/users/views.py:62
 msgid "Deleting a user"
 msgstr "Удалить пользователя"
-
-#: task_manager/users/views.py:63
-msgid "Yes, delete"
-msgstr "Да, удалить"
 
 #: task_manager/views.py:19
 msgid "You are logged in"

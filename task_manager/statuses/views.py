@@ -60,5 +60,5 @@ class StatusDeleteFormView(SuccessMessageMixin, LoginRequiredMixin,
     success_message = _('Status deleted successfully')
     extra_context = {
         'title': _('Deleting a status'),
-        'button_text': _('Delete'),
+        'button_text': _('Yes, delete'),
     }

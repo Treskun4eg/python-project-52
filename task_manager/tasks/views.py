@@ -79,5 +79,5 @@ class TaskDeleteFormView(SuccessMessageMixin, LoginRequiredMixin,
     success_message = _('Task deleted successfully')
     extra_context = {
         'title': _('Deleting a task'),
-        'button_text': _('Delete'),
+        'button_text': _('Yes, delete'),
     }
