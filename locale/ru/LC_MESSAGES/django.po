@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 23:12+0100\n"
+"POT-Creation-Date: 2024-03-05 23:29+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -49,6 +49,10 @@ msgstr "Создать метку"
 #: task_manager/tasks/views.py:50
 msgid "Create"
 msgstr "Создать"
+
+#: task_manager/labels/views.py:45
+msgid "Label changed successfully"
+msgstr "Метка успешно изменена"
 
 #: task_manager/labels/views.py:47
 msgid "Change of label"
