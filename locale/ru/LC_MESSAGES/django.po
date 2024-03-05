@@ -119,7 +119,7 @@ msgstr "Вы не можете удалить статус, пока он исп
 
 #: task_manager/statuses/views.py:60
 msgid "Status deleted successfully"
-msgstr "Статус успешно удалён"
+msgstr "Статус успешно удален"
 
 #: task_manager/statuses/views.py:62
 msgid "Deleting a status"
