@@ -248,7 +248,7 @@ msgstr "Зарегистрировать"
 
 #: task_manager/users/views.py:45
 msgid "User successfully changed"
-msgstr "Пользователь успешно изменён"
+msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py:47
 msgid "Edit"
@@ -260,7 +260,7 @@ msgstr "Вы не можете удалить пользователя, пока
 
 #: task_manager/users/views.py:60
 msgid "User deleted successfully"
-msgstr "Пользователь успешно удалён"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/users/views.py:62
 msgid "Deleting a user"
