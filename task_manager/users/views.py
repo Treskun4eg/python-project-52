@@ -42,7 +42,7 @@ class UserUpdateFormView(SuccessMessageMixin, UserEditPermissionMixin, LoginRequ
     form_class = UserForm
     template_name = 'form.html'
     success_url = reverse_lazy('users_index')
-    success_message = 'User successfully changed'
+    success_message = _('User successfully changed')
     extra_context = {
         'title': _('Edit'),
         'button_text': _('Update'),
