@@ -20,7 +20,9 @@ class TaskCreateFormViewTests(TestCase):
                                                                   'status': status.id,
                                                                   'author': user.id})
         self.assertEqual(response.status_code, 302)
+        task = TasksModel.objects.get(pk=4)
         self.assertEqual(TasksModel.objects.all().count(), 4)
+        self.assertEqual(task.__str__(), task.name)
 
     def test_redirect_task(self):
         user = User.objects.get(pk=1)
