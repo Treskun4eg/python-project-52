@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-06 22:25+0100\n"
+"POT-Creation-Date: 2024-03-06 22:46+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -27,7 +27,7 @@ msgstr ""
 msgid "Name"
 msgstr "Имя"
 
-#: task_manager/labels/models.py:26 task_manager/tasks/filters.py:10
+#: task_manager/labels/models.py:26 task_manager/tasks/filters.py:11
 msgid "Label"
 msgstr "Меткa"
 
@@ -128,6 +128,10 @@ msgstr "Статус успешно удален"
 #: task_manager/statuses/views.py:62
 msgid "Deleting a status"
 msgstr "Удаление статуса"
+
+#: task_manager/tasks/filters.py:13
+msgid "Self tasks"
+msgstr "Только свои задачи"
 
 #: task_manager/tasks/models.py:25
 msgid "Description"
