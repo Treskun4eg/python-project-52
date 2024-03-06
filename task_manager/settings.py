@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.getenv('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'webserver',
@@ -167,4 +167,4 @@ ROLLBAR = {
 }
 
 # Кастомная модель пользователя
-# AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL = 'users.User'

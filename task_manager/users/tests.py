@@ -2,7 +2,7 @@ import json
 
 from django.test import TestCase
 from django.urls import reverse_lazy, reverse
-from django.contrib.auth.models import User
+from .models import User
 
 with open('task_manager/fixtures/user.json') as file:
     new_user = json.loads(file.read())

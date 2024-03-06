@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 
 
 # from .models import User
-from django.contrib.auth.models import User
+from .models import User
 
 from django.views.generic import CreateView, UpdateView, ListView, DeleteView
 from task_manager.users.forms import UserForm

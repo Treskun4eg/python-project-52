@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-05 23:29+0100\n"
+"POT-Creation-Date: 2024-03-06 22:25+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -225,7 +225,8 @@ msgstr "Создать метку"
 msgid "Creation date"
 msgstr "Дата создания"
 
-#: task_manager/templates/navigation.html:14 task_manager/users/views.py:22
+#: task_manager/templates/navigation.html:14 task_manager/users/models.py:12
+#: task_manager/users/views.py:22
 msgid "Users"
 msgstr "Пользователи"
 
@@ -248,6 +249,18 @@ msgstr "Имя пользователя"
 #: task_manager/templates/users/index.html:15
 msgid "Full name"
 msgstr "Полное имя"
+
+#: task_manager/users/forms.py:15
+msgid "First name"
+msgstr "Имя"
+
+#: task_manager/users/forms.py:18
+msgid "Last name"
+msgstr "Фамилия"
+
+#: task_manager/users/models.py:11
+msgid "User"
+msgstr "Пользователь"
 
 #: task_manager/users/views.py:32
 msgid "User successfully registered"

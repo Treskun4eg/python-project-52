@@ -3,8 +3,8 @@ from django.shortcuts import get_object_or_404, redirect
 from django.urls import reverse_lazy
 from django.contrib import messages
 from django.utils.translation import gettext as _
-# from task_manager.users.models import User
-from django.contrib.auth.models import User
+from task_manager.users.models import User
+# from django.contrib.auth.models import User
 from django.db.models import ProtectedError
 
 
