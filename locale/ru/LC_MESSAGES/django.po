@@ -61,7 +61,7 @@ msgstr "Изменить метку"
 #: task_manager/labels/views.py:48 task_manager/statuses/views.py:48
 #: task_manager/tasks/views.py:35 task_manager/tasks/views.py:67
 #: task_manager/templates/labels/index.html:47
-#: task_manager/templates/statuses/index.html:47
+#: task_manager/templates/statuses/index.html:47§
 #: task_manager/templates/tasks/index.html:56
 #: task_manager/templates/tasks/task.html:48
 #: task_manager/templates/users/index.html:28 task_manager/users/views.py:48
