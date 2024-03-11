@@ -162,30 +162,12 @@ CSRF_TRUSTED_ORIGINS = [
     'https://python-project-52-production-264f.up.railway.app',
 ]
 
-ROLLBAR_CONFIG = {
-    'access_token': os.getenv('POST_SERVER_ITEM_ACCESS_TOKEN'),
+ROLLBAR = {
+    'access_token': '95d25e8b8f804204932ee9ce01d9d612',
     'environment': 'development' if DEBUG else 'production',
-    'branch': 'main',
     'code_version': '1.0',
-    'root': BASE_DIR
+    'root': BASE_DIR,
 }
-
-if django.VERSION >= (1, 10):
-    settings.configure(
-        DEBUG=True,
-        SECRET_KEY=SECRET_KEY,
-        ROOT_URLCONF=__name__,
-        ROLLBAR=ROLLBAR_CONFIG,
-        MIDDLEWARE=MIDDLEWARE,
-    )
-else:
-    settings.configure(
-        DEBUG=True,
-        SECRET_KEY=SECRET_KEY,
-        ROOT_URLCONF=__name__,
-        ROLLBAR=ROLLBAR_CONFIG,
-        MIDDLEWARE_CLASSES=MIDDLEWARE,
-    )
 
 # Кастомная модель пользователя
 AUTH_USER_MODEL = 'users.User'
