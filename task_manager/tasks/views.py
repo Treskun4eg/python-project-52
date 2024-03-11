@@ -14,16 +14,16 @@ from task_manager.tasks.filters import TaskFilter
 from django_filters.views import FilterView
 
 
-# class TasksIndexView(LoginRequiredMixin, FilterView):
-#
-#     template_name = 'tasks/index.html'
-#     model = TasksModel
-#     filterset_class = TaskFilter
-#     context_object_name = 'tasks'
-#     extra_context = {
-#         'title': _('Tasks'),
-#         'button_text': _('Show'),
-#     }
+class TasksIndexView(LoginRequiredMixin, FilterView):
+
+    template_name = 'tasks/index.html'
+    model = TasksModel
+    filterset_class = TaskFilter
+    context_object_name = 'tasks'
+    extra_context = {
+        'title': _('Tasks'),
+        'button_text': _('Show'),
+    }
 
 
 class TaskDetailView(LoginRequiredMixin, SuccessMessageMixin, DetailView):
