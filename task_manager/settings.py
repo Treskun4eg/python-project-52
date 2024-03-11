@@ -45,6 +45,7 @@ ALLOWED_HOSTS = [
 
 INSTALLED_APPS = [
     'bootstrap5',
+    'rollbar.contrib.django',
     'django_extensions',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -58,7 +59,6 @@ INSTALLED_APPS = [
     'task_manager.tasks',
     'task_manager.labels',
     'django_filters',
-    'rollbar.contrib.django',
 ]
 
 MIDDLEWARE = [
