@@ -16,6 +16,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 from django.conf import settings
 import django
+import rollbar
 
 load_dotenv()
 
