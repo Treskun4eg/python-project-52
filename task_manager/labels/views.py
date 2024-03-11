@@ -50,7 +50,7 @@ class LabelUpdateFormView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
 
 
 class LabelDeleteFormView(SuccessMessageMixin, LoginRequiredMixin,
-                           DeleteProtectionMixin, DeleteView):
+                          DeleteProtectionMixin, DeleteView):
 
     model = LabelsModel
     template_name = 'labels/delete.html'
