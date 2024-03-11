@@ -166,9 +166,10 @@ CSRF_TRUSTED_ORIGINS = [
 
 ROLLBAR_CONFIG = {
     'access_token': POST_SERVER_ITEM_ACCESS_TOKEN,
-    'environment': 'development',
+    'environment': 'development' if DEBUG else 'production',
     'branch': 'main',
-    'root': os.getcwd()
+    'code_version': '1.0',
+    'root': BASE_DIR
 }
 
 if django.VERSION >= (1, 10):
