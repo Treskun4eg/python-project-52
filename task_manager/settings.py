@@ -32,8 +32,6 @@ SECRET_KEY = os.getenv('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-POST_SERVER_ITEM_ACCESS_TOKEN = os.getenv('POST_SERVER_ITEM_ACCESS_TOKEN')
-
 ALLOWED_HOSTS = [
     'webserver',
     '0.0.0.0',
@@ -165,7 +163,7 @@ CSRF_TRUSTED_ORIGINS = [
 ]
 
 ROLLBAR_CONFIG = {
-    'access_token': POST_SERVER_ITEM_ACCESS_TOKEN,
+    'access_token': os.getenv('POST_SERVER_ITEM_ACCESS_TOKEN'),
     'environment': 'development' if DEBUG else 'production',
     'branch': 'main',
     'code_version': '1.0',
