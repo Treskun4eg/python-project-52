@@ -14,6 +14,8 @@ import os
 import dj_database_url
 from pathlib import Path
 from dotenv import load_dotenv
+from django.conf import settings
+import django
 
 load_dotenv()
 
@@ -162,12 +164,29 @@ CSRF_TRUSTED_ORIGINS = [
     'https://python-project-52-production-264f.up.railway.app',
 ]
 
-ROLLBAR = {
+ROLLBAR_CONFIG = {
     'access_token': POST_SERVER_ITEM_ACCESS_TOKEN,
-    'environment': 'development' if DEBUG else 'production',
-    'code_version': '1.0',
-    'root': BASE_DIR,
+    'environment': 'development',
+    'branch': 'main',
+    'root': os.getcwd()
 }
+
+if django.VERSION >= (1, 10):
+    settings.configure(
+        DEBUG=True,
+        SECRET_KEY=SECRET_KEY,
+        ROOT_URLCONF=__name__,
+        ROLLBAR=ROLLBAR_CONFIG,
+        MIDDLEWARE=MIDDLEWARE,
+    )
+else:
+    settings.configure(
+        DEBUG=True,
+        SECRET_KEY=SECRET_KEY,
+        ROOT_URLCONF=__name__,
+        ROLLBAR=ROLLBAR_CONFIG,
+        MIDDLEWARE_CLASSES=MIDDLEWARE,
+    )
 
 # Кастомная модель пользователя
 AUTH_USER_MODEL = 'users.User'
