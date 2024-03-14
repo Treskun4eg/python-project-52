@@ -34,10 +34,10 @@ class TasksModel(TimestampedModel):
     author = models.ForeignKey(User, on_delete=models.PROTECT,
                                related_name='authors',
                                verbose_name=_('Author'))
-    labels = models.ManyToManyField(LabelsModel, through='LabelsOnTasks',
-                                    through_fields=('task', 'label'),
-                                    blank=True, related_name='labels',
-                                    verbose_name=_('Labels'))
+    label = models.ManyToManyField(LabelsModel, through='LabelsOnTasks',
+                                   through_fields=('task', 'label'),
+                                   blank=True, related_name='labels',
+                                   verbose_name=_('Labels'))
 
     def __str__(self):
         return self.name
