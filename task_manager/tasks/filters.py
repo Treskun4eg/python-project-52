@@ -7,7 +7,7 @@ from django import forms
 
 class TaskFilter(FilterSet):
 
-    labels = filters.ModelChoiceFilter(queryset=LabelsModel.objects.all(),
+    label = filters.ModelChoiceFilter(queryset=LabelsModel.objects.all(),
                                        label=_('Label'))
 
     self_tasks = filters.BooleanFilter(label=_('Self tasks'),
@@ -21,4 +21,4 @@ class TaskFilter(FilterSet):
 
     class Meta:
         model = TasksModel
-        fields = ['status', 'executor', 'labels', 'self_tasks']
+        fields = ['status', 'executor', 'label', 'self_tasks']
