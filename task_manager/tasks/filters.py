@@ -1,5 +1,4 @@
 from django_filters import FilterSet, filters
-import django_filters
 from .models import TasksModel
 from task_manager.labels.models import LabelsModel
 from django.utils.translation import gettext_lazy as _
@@ -8,9 +7,8 @@ from django import forms
 
 class TaskFilter(FilterSet):
 
-    labels = django_filters.ModelChoiceFilter(
-        label=_('Label'),
-        queryset=lambda req: LabelsModel.objects.all(),)
+    labels = filters.ModelChoiceFilter(queryset=LabelsModel.objects.all(),
+                                       label=_('Label'))
 
     self_tasks = filters.BooleanFilter(label=_('Self tasks'),
                                        method='get_self_tasks',
