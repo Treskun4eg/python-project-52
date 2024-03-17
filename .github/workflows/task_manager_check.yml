@@ -15,7 +15,7 @@ jobs:
       - name: install dependencies
         run: |
           pip install poetry flake8 pytest
-          make setup
+          make install
       - name: Run linter
         run: make lint
 #      - name: Code Coverage
