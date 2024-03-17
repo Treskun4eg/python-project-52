@@ -1,7 +1,7 @@
 from django.test import TestCase
 from django.urls import reverse_lazy, reverse
 from .models import LabelsModel
-from django.contrib.auth.models import User
+from task_manager.users.models import User
 
 
 class LabelCreateFormViewTests(TestCase):

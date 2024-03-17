@@ -1,8 +1,8 @@
 import json
 
-from django.test import TestCase
+from django.test import TestCase, Client
 from django.urls import reverse_lazy, reverse
-from .models import User
+from task_manager.users.models import User
 
 with open('task_manager/fixtures/user.json') as file:
     new_user = json.loads(file.read())
@@ -32,18 +32,20 @@ class UserUpdateFormViewTests(TestCase):
 
     fixtures = ['users.json']
 
+    def setUp(self):
+        self.client = Client()
+        self.user1 = User.objects.get(pk=1)
+        self.user2 = User.objects.get(pk=2)
+        self.user3 = User.objects.get(pk=3)
+
     def test_update_view(self):
-        update = {
-            'username': 'new_value1',
-            'password1': '12345678910',
-            'password2': '12345678910'
-        }
-        user = User.objects.get(pk=2)
+        test_user = dict(new_user)
+        user = User.objects.get(pk=1)
         self.client.force_login(user=user)
-        response = self.client.post(reverse('update_user', kwargs={'pk': 2}), update)
+        response = self.client.post(reverse('update_user', args=[self.user1.id]), test_user)
         self.assertEqual(response.status_code, 302)
-        user = User.objects.get(pk=2)
-        self.assertEqual(user.username, update['username'])
+        user = User.objects.get(pk=1)
+        self.assertEqual(user.username, test_user['username'])
 
     def test_update_logout(self):
         response = self.client.post(reverse('update_user', kwargs={'pk': 2}))

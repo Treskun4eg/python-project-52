@@ -42,9 +42,10 @@ class TaskUpdateFormViewTests(TestCase):
         user = User.objects.get(pk=2)
         status = StatusesModel.objects.get(pk=2)
         self.client.force_login(user=user)
-        response = self.client.post(reverse('task_update', kwargs={'pk': 1}), {'name': 'update_task',
-                                                                               'status': status.id,
-                                                                               'author': user.id})
+        response = self.client.post(reverse('task_update', kwargs={'pk': 1}),
+                                    {'name': 'update_task',
+                                     'status': status.id,
+                                     'author': user.id})
         self.assertEqual(response.status_code, 302)
         task = TasksModel.objects.get(pk=1)
         self.assertEqual(task.name, 'update_task')

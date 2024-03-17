@@ -5,5 +5,5 @@ class TasksConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
     name = 'task_manager.tasks'
 
-    def ready(self):
-        from task_manager.tasks import signals
+    # def ready(self):
+    #     from task_manager.tasks import signals
