@@ -9,6 +9,7 @@ class TaskFilter(FilterSet):
 
     label = filters.ModelChoiceFilter(queryset=LabelsModel.objects.all(),
                                       label=_('Label'),
+                                      method='get_self_tasks',
                                       widget=forms.Select)
 
     self_tasks = filters.BooleanFilter(label=_('Self tasks'),
