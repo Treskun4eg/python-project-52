@@ -8,7 +8,8 @@ from django import forms
 class TaskFilter(FilterSet):
 
     label = filters.ModelChoiceFilter(queryset=LabelsModel.objects.all(),
-                                       label=_('Label'))
+                                      label=_('Label'),
+                                      widget=forms.Select)
 
     self_tasks = filters.BooleanFilter(label=_('Self tasks'),
                                        method='get_self_tasks',
