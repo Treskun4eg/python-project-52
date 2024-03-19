@@ -45,9 +45,9 @@
         <tr>
             <td>{{ task.id }}</td>
             <td><a href="{% url 'task_detail' task.id %}">{{ task.name }}</a></td>
-            <td>{{ task.status }}</td>
+            <td>{{ task.status|default:"" }}</td>
             <td>{{ task.author }}</td>
-            <td>{{ task.executor }}</td>
+            <td>{{ task.executor|default:"" }}</td>
             <td></td>
             <td></td>
             <td></td>

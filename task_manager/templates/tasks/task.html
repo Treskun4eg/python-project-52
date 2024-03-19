@@ -24,11 +24,11 @@
       </div>
       <div class="row p-1">
         <div class="col">{% trans 'Executor' %}</div>
-        <div class="col">{{ task.executor }}</div>
+        <div class="col">{{ task.executor|default:"" }}</div>
       </div>
       <div class="row p-1">
         <div class="col">{% trans 'Status' %}</div>
-        <div class="col">{{ task.status }}</div>
+        <div class="col">{{ task.status|default:"" }}</div>
       </div>
       <div class="row p-1">
         <div class="col">{% trans 'Creation date' %}</div>
@@ -38,7 +38,7 @@
         <div class="col"><h6>{% trans 'Labels' %}:</h6>
           <ul>
               {% for label in task.label.all %}
-                  <li>{{ label.name }}</li>
+                  <li>{{ label.name|default:"" }}</li>
               {% endfor %}
           </ul>
         </div>
