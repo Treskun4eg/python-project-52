@@ -183,7 +183,7 @@ msgstr "Создать задачу"
 
 #: task_manager/tasks/views.py:67
 msgid "Task changed successfully"
-msgstr "Задача успешно измененена"
+msgstr "Задача успешно изменена"
 
 #: task_manager/tasks/views.py:69
 msgid "Change of task"
