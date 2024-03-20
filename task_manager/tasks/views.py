@@ -64,7 +64,7 @@ class TaskUpdateFormView(SuccessMessageMixin, LoginRequiredMixin, UpdateView):
     form_class = TaskForm
     template_name = 'form.html'
     success_url = reverse_lazy('tasks_index')
-    success_message = 'Task changed successfully'
+    success_message = _('Task changed successfully')
     extra_context = {
         'title': _('Change of task'),
         'button_text': _('Update'),

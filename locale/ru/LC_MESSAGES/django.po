@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-03-19 23:39+0100\n"
+"POT-Creation-Date: 2024-03-20 21:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -47,7 +47,7 @@ msgid "Create Label"
 msgstr "Создать метку"
 
 #: task_manager/labels/views.py:35 task_manager/statuses/views.py:35
-#: task_manager/tasks/views.py:50
+#: task_manager/tasks/views.py:53
 msgid "Create"
 msgstr "Создать"
 
@@ -60,7 +60,7 @@ msgid "Change of label"
 msgstr "Изменить метку"
 
 #: task_manager/labels/views.py:48 task_manager/statuses/views.py:48
-#: task_manager/tasks/views.py:35 task_manager/tasks/views.py:67
+#: task_manager/tasks/views.py:38 task_manager/tasks/views.py:70
 #: task_manager/templates/labels/index.html:47
 #: task_manager/templates/statuses/index.html:47
 #: task_manager/templates/tasks/index.html:56
@@ -82,7 +82,7 @@ msgid "Deleting a label"
 msgstr "Удалить метку"
 
 #: task_manager/labels/views.py:63 task_manager/statuses/views.py:63
-#: task_manager/tasks/views.py:82 task_manager/users/views.py:63
+#: task_manager/tasks/views.py:85 task_manager/users/views.py:63
 msgid "Yes, delete"
 msgstr "Да, удалить"
 
@@ -152,20 +152,20 @@ msgstr "Автор"
 msgid "Task"
 msgstr "Задачв"
 
-#: task_manager/tasks/models.py:47 task_manager/tasks/views.py:24
+#: task_manager/tasks/models.py:47 task_manager/tasks/views.py:27
 #: task_manager/templates/navigation.html:26
 msgid "Tasks"
 msgstr "Задачи"
 
-#: task_manager/tasks/views.py:25
+#: task_manager/tasks/views.py:28
 msgid "Show"
 msgstr "Показать"
 
-#: task_manager/tasks/views.py:34 task_manager/templates/tasks/task.html:11
+#: task_manager/tasks/views.py:37 task_manager/templates/tasks/task.html:11
 msgid "Task view"
 msgstr "Просмотр задачи"
 
-#: task_manager/tasks/views.py:36 task_manager/templates/labels/index.html:49
+#: task_manager/tasks/views.py:39 task_manager/templates/labels/index.html:49
 #: task_manager/templates/statuses/index.html:49
 #: task_manager/templates/tasks/index.html:58
 #: task_manager/templates/tasks/task.html:50
@@ -173,27 +173,31 @@ msgstr "Просмотр задачи"
 msgid "Delete"
 msgstr "Удалить"
 
-#: task_manager/tasks/views.py:47
+#: task_manager/tasks/views.py:50
 msgid "Task successfully created"
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:49 task_manager/templates/tasks/index.html:15
+#: task_manager/tasks/views.py:52 task_manager/templates/tasks/index.html:15
 msgid "Create task"
 msgstr "Создать задачу"
 
-#: task_manager/tasks/views.py:66
+#: task_manager/tasks/views.py:67
+msgid "Task changed successfully"
+msgstr "Задача успешно измененена"
+
+#: task_manager/tasks/views.py:69
 msgid "Change of task"
 msgstr "Изменить задачу"
 
-#: task_manager/tasks/views.py:76
+#: task_manager/tasks/views.py:79
 msgid "You cannot delete task while it is in use"
 msgstr "Вы не можете удалить задачу, пока она используется."
 
-#: task_manager/tasks/views.py:79
+#: task_manager/tasks/views.py:82
 msgid "Task deleted successfully"
 msgstr "Задача успешно удалена"
 
-#: task_manager/tasks/views.py:81
+#: task_manager/tasks/views.py:84
 msgid "Deleting a task"
 msgstr "Удаление задачи"
 
