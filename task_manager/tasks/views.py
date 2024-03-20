@@ -7,7 +7,10 @@ from task_manager.labels.models import LabelsModel
 from .models import TasksModel
 from .forms import TaskForm
 
-from django.views.generic import CreateView, UpdateView, ListView, DeleteView, DetailView
+from django.views.generic import CreateView,\
+    UpdateView,\
+    DeleteView,\
+    DetailView
 from django.utils.translation import gettext_lazy as _
 
 from task_manager.tasks.filters import TaskFilter
