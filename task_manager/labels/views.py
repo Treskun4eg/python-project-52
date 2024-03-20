@@ -1,6 +1,6 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
-from task_manager.mixins import UserEditPermissionMixin, DeleteProtectionMixin
+from task_manager.mixins import DeleteProtectionMixin
 from django.urls import reverse_lazy
 
 

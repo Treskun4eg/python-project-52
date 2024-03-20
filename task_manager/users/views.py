@@ -7,7 +7,10 @@ from django.urls import reverse_lazy
 # from .models import User
 from .models import User
 
-from django.views.generic import CreateView, UpdateView, ListView, DeleteView
+from django.views.generic import CreateView, \
+                                 UpdateView, \
+                                 ListView, \
+                                 DeleteView
 from task_manager.users.forms import UserForm
 from django.utils.translation import gettext_lazy as _
 
@@ -36,7 +39,10 @@ class UserRegistrationFormView(SuccessMessageMixin, CreateView):
     }
 
 
-class UserUpdateFormView(SuccessMessageMixin, UserEditPermissionMixin, LoginRequiredMixin, UpdateView):
+class UserUpdateFormView(SuccessMessageMixin,
+                         UserEditPermissionMixin,
+                         LoginRequiredMixin,
+                         UpdateView):
 
     model = User
     form_class = UserForm
@@ -49,8 +55,11 @@ class UserUpdateFormView(SuccessMessageMixin, UserEditPermissionMixin, LoginRequ
     }
 
 
-class UserDeleteFormView(SuccessMessageMixin, UserEditPermissionMixin,
-                         LoginRequiredMixin, DeleteProtectionMixin, DeleteView):
+class UserDeleteFormView(SuccessMessageMixin,
+                         UserEditPermissionMixin,
+                         LoginRequiredMixin,
+                         DeleteProtectionMixin,
+                         DeleteView):
 
     model = User
     template_name = 'users/delete_user.html'

@@ -15,13 +15,21 @@ class UserForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ('first_name', 'last_name', 'username', 'password1', 'password2')
+        fields = (
+            'first_name',
+            'last_name',
+            'username',
+            'password1',
+            'password2'
+        )
 
     def clean_username(self):
         username = self.cleaned_data.get('username')
         try:
-            user = User.objects.exclude(pk=self.instance.pk).get(username=username)
-            raise forms.ValidationError('A user with the same name already exists.')
+            user = User.objects.exclude(pk=self.instance.pk).get(username=username)  # noqa: F841, E501
+            raise forms.ValidationError(
+                'A user with the same name already exists.'
+            )
         except User.DoesNotExist:
             return username
 

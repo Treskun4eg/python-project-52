@@ -14,14 +14,20 @@ class LabelCreateFormViewTests(TestCase):
         response = self.client.get(reverse('label_create'))
         self.assertEqual(response.status_code, 200)
         self.assertEqual(LabelsModel.objects.all().count(), 2)
-        response = self.client.post(reverse_lazy('label_create'), {'name': 'new_label'})
+        response = self.client.post(
+            reverse_lazy('label_create'),
+            {'name': 'new_label'}
+        )
         self.assertEqual(response.status_code, 302)
         self.assertEqual(LabelsModel.objects.all().count(), 3)
 
     def test_redirect_label(self):
         user = User.objects.get(pk=1)
         self.client.force_login(user=user)
-        response = self.client.post(reverse_lazy('label_create'), {'name': 'new_status1'})
+        response = self.client.post(
+            reverse_lazy('label_create'),
+            {'name': 'new_status1'}
+        )
         self.assertRedirects(response, reverse_lazy('labels_index'))
 
 
@@ -32,7 +38,10 @@ class LabelUpdateFormViewTests(TestCase):
     def test_update_view(self):
         user = User.objects.get(pk=1)
         self.client.force_login(user=user)
-        response = self.client.post(reverse('label_update', kwargs={'pk': 1}), {'name': 'update_label'})
+        response = self.client.post(
+            reverse('label_update', kwargs={'pk': 1}),
+            {'name': 'update_label'}
+        )
         self.assertEqual(response.status_code, 302)
         status = LabelsModel.objects.get(pk=1)
         self.assertEqual(status.name, 'update_label')
@@ -40,7 +49,10 @@ class LabelUpdateFormViewTests(TestCase):
     def test_update_redirect(self):
         user = User.objects.get(pk=1)
         self.client.force_login(user=user)
-        response = self.client.post(reverse('label_update', kwargs={'pk': 1}), {'name': 'update_label'})
+        response = self.client.post(
+            reverse('label_update', kwargs={'pk': 1}),
+            {'name': 'update_label'}
+        )
         self.assertEqual(response.status_code, 302)
         self.assertRedirects(response, reverse_lazy('labels_index'))
 
