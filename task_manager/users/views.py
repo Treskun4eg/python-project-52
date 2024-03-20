@@ -8,9 +8,7 @@ from django.urls import reverse_lazy
 from .models import User
 
 from django.views.generic import CreateView, \
-                                 UpdateView, \
-                                 ListView, \
-                                 DeleteView
+    UpdateView, ListView, DeleteView
 from task_manager.users.forms import UserForm
 from django.utils.translation import gettext_lazy as _
 
